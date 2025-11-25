@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wired Business & Advisory - Strategic Business Solutions</title>
+    <style>
+        /* Brand Colors and Variables */
+        :root {
+            --charcoal: #2C3E50;
+            --dark-orange: #E74C3C;
+            --light-orange: #FF6B6B;
+            --grey: #34495E;
+            --light-grey: #ECF0F1;
+            --white: #FFFFFF;
+            --accent: #F39C12;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--charcoal);
+            padding: 1rem 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--dark-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-orange);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--grey) 100%);
+            color: var(--white);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm57-13c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark-orange);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--dark-orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--light-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--charcoal);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--grey);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-grey);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-card h3 {
+            color: var(--dark-orange);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--charcoal), var(--grey));
+            color: var(--white);
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-header h3 {
+            font-size: 1.2rem;
+        }
+
+        .service-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            background: var(--white);
+            display: none;
+        }
+
+        .service-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .service-content ul {
+            list-style: none;
+        }
+
+        .service-content li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--dark-orange);
+            font-weight: bold;
+        }
+
+        /* Values Section */
+        .values {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .values .section-title,
+        .values .section-subtitle {
+            color: var(--white);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: scale(1.05);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-orange);
+        }
+
+        .value-item h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Why Choose Us */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .why-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            border-top: 4px solid var(--dark-orange);
+        }
+
+        .why-item h3 {
+            color: var(--dark-orange);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light-grey);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h3 {
+            color: var(--dark-orange);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item span {
+            margin-right: 1rem;
+            color: var(--dark-orange);
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--dark-orange);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--dark-orange);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--charcoal);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span>WIRED</span> BUSINESS & ADVISORY
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#values">Values</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Empowering African Businesses</h1>
+            <p class="subtitle">Strategic Solutions. Sustainable Growth.</p>
+            <p>We provide integrated, strategic and practical business solutions tailored for organisations at every stage of growth. From executive advisory to HR, strategy, skills development, and operational support.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get Consultation</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about fade-in">
+        <h2 class="section-title">About Wired Business & Advisory</h2>
+        <p class="section-subtitle">Your Trusted Partner in Business Excellence</p>
+        
+        <div class="about-grid">
+            <div class="about-card fade-in">
+                <h3>Our Vision</h3>
+                <p>To be a leading African advisory firm known for excellence, innovation, and value-driven business solutions.</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>Our Mission</h3>
+                <p>To provide holistic business consultancy services that empower organisations to operate effectively, grow sustainably, and compete confidently.</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>Who We Serve</h3>
+                <p>Small and medium-sized businesses, startups, entrepreneurs, corporate leaders, and organisations seeking strategic improvement across Africa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services fade-in">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive Business Solutions Tailored to Your Needs</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Executive Advisory & Mentorship</h3>
+                    <span class="service-toggle">+</span>
+                </div>
+                <div class="service-content">
+                    <ul>
+                        <li>Leadership coaching and development</li>
+                        <li>Strategy consulting for executives and management teams</li>
+                        <li>Business performance reviews</li>
+                        <li>Mentorship for entrepreneurs and emerging leaders</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Human Resources Solutions</h3>
+                    <span class="service-toggle">+</span>
+                </div>
+                <div class="service-content">
+                    <ul>
+                        <li>HR strategy and policy development</li>
+                        <li>Employee relations and compliance</li>
+                        <li>Recruitment and onboarding solutions</li>
+                        <li>Skills planning and organisational development</li>
+                        <li>Workplace culture and performance management systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Business Bookkeeping & Administration</h3>
+                    <span class="service-toggle">+</span>
+                </div>
+                <div class="service-content">
+                    <ul>
+                        <li>Bookkeeping and financial record management</li>
+                        <li>Invoicing and cashflow tracking</li>
+                        <li>Compliance support (CIPC, SARS, etc.)</li>
+                        <li>Business operational structuring</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Business Development & Strategy</h3>
+                    <span class="service-toggle">+</span>
+                </div>
+                <div class="service-content">
+                    <ul>
+                        <li>Business planning and growth strategies</li>
+                        <li>Market analysis and feasibility assessments</li>
+                        <li>Process optimisation and business modelling</li>
+                        <li>New venture development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Skills Development & Training</h3>
+                    <span class="service-toggle">+</span>
+                </div>
+                <div class="service-content">
+                    <ul>
+                        <li>Training needs analysis</li>
+                        <li>Employee skills upliftment programmes</li>
+                        <li>Learnership and development guidance</li>
+                        <li>Professional development workshops</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Ongoing Business Support</h3>
+                    <span class="service-toggle">+</span>
+                </div>
+                <div class="service-content">
+                    <ul>
+                        <li>Virtual business assistance</li>
+                        <li>Administrative support services</li>
+                        <li>Operational improvement</li>
+                        <li>Business systems setup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="values fade-in">
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle">The Principles That Drive Everything We Do</p>
+        
+        <div class="values-grid">
+            <div class="value-item fade-in">
+                <div class="value-icon">✓</div>
+                <h4>Integrity</h4>
+                <p>We operate with transparency, honesty, and responsibility.</p>
+            </div>
+            <div class="value-item fade-in">
+                <div class="value-icon">⭐</div>
+                <h4>Excellence</h4>
+                <p>We deliver high-quality, professional work at all times.</p>
+            </div>
+            <div class="value-item fade-in">
+                <div class="value-icon">💡</div>
+                <h4>Innovation</h4>
+                <p>We embrace modern, efficient, and creative solutions.</p>
+            </div>
+            <div class="value-item fade-in">
+                <div class="value-icon">🎯</div>
+                <h4>Client-Centricity</h4>
+                <p>We prioritise our clients' needs and goals.</p>
+            </div>
+            <div class="value-item fade-in">
+                <div class="value-icon">🤝</div>
+                <h4>Collaboration</h4>
+                <p>We work closely with clients as strategic partners.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="why-us fade-in">
+        <h2 class="section-title">Why Choose Wired Business & Advisory?</h2>
+        <p class="section-subtitle">Your Success Is Our Priority</p>
+        
+        <div class="why-grid">
+            <div class="why-item fade-in">
+                <h3>Tailored Solutions</h3>
+                <p>We don't believe in one-size-fits-all. Every solution is customised to your unique business needs.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Professional Expertise</h3>
+                <p>Our team brings deep knowledge across multiple business disciplines with proven track records.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Scalable Services</h3>
+                <p>From startups to growing enterprises, our services grow with your business.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Holistic Approach</h3>
+                <p>We integrate strategy, operations, people, and performance for comprehensive solutions.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>African Focus</h3>
+                <p>Deep understanding of the African business landscape with a global perspective.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Long-term Commitment</h3>
+                <p>We're invested in your long-term success and sustainability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's Discuss How We Can Transform Your Business</p>
+        
+        <div class="contact-grid">
+            <div class="contact-info fade-in">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <div>
+                        <strong>Location</strong><br>
+                        Johannesburg, South Africa
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <div>
+                        <strong>Phone</strong><br>
+                        +27 81 366 0538
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <div>
+                        <strong>Email</strong><br>
+                        zelda@wiredbiz.co.za
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span>🌐</span>
+                    <div>
+                        <strong>Website</strong><br>
+                        www.wiredbiz.co.za
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form fade-in">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interest</label>
+                        <select id="service" name="service" style="width: 100%; padding: 0.85rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                            <option value="">Select a service...</option>
+                            <option value="executive">Executive Advisory & Mentorship</option>
+                            <option value="hr">Human Resources Solutions</option>
+                            <option value="bookkeeping">Business Bookkeeping & Administration</option>
+                            <option value="strategy">Business Development & Strategy</option>
+                            <option value="training">Skills Development & Training</option>
+                            <option value="support">Ongoing Business Support</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Wired Business & Advisory. All rights reserved.</p>
+        <p>Empowering African Businesses Through Strategic Excellence</p>
+        <div class="social-links">
+            <a href="#" title="LinkedIn">in</a>
+            <a href="#" title="Twitter">t</a>
+            <a href="#" title="Facebook">f</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Service card toggle
+        function toggleService(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.service-toggle');
+            
+            content.classList.toggle('active');
+            toggle.textContent = content.classList.contains('active') ? '−' : '+';
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(44, 62, 80, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'var(--charcoal)';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // In a real application, you would send this to a server
+            console.log('Form submitted with data:', data);
+            
+            // Show success message
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
